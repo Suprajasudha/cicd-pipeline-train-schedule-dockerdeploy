@@ -41,7 +41,7 @@ pipeline {
     steps {
         input 'Deploy to Production'
         milestone(1)
-        withCredentials ([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+        withCredentials ([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'saisai', passwordVariable: 'saisai')]) {
             script {
                 sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@${env.prod_ip} \"docker pull dockercheruku/trainsechdule:${env.BUILD_NUMBER}\""
                 try {
